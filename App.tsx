@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import CountdownsStackScreen from './screens/countdownScreens/countdowns';
-import StopwatchScreen from './screens/stopwatch';
+import CountdownsStackScreen from './src/screens/countdownScreens/countdowns';
+import StopwatchScreen from './src/screens/stopwatch';
 
 
 

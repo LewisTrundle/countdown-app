@@ -21,9 +21,8 @@ const getCountdown = async (countdownName: string): Promise<Countdown> => {
 
 const getAllCountdowns = async () => {
   try {
-    //await AsyncStorage.multiRemove(["Test5", "Test7", "Test1"]); 
+    //await AsyncStorage.multiRemove(["Soon", "Test2", "Test6"]); 
     const keys: readonly string[] = await AsyncStorage.getAllKeys();
-    //console.log(keys)
     const countdownList: Countdown[] = await Promise.all(keys.map(async (key) => {
       let c = await getCountdown(key);
       return new Countdown(c.title, c.dateTime, c.repeat, c.notifications, c.description)
