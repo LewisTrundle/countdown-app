@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, Image, Modal, FlatList, Pressable, Text } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 import { useState, useEffect } from "react";
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,8 +8,8 @@ import { IconWithText } from '../../components/IconWithText';
 import { Countdown } from '../../classes/Countdown';
 import { addCountdown } from '../../helpers/storageAccess';
 
-import { RepeatOptions } from '../../enums/RepeatOptions';
-import { NotificationOptions } from '../../enums/NotificationOptions';
+import { RepeatOptions } from '../../constants/RepeatOptions';
+import { NotificationOptions } from '../../constants/NotificationOptions';
 
 import { OptionsModal } from '../../components/OptionsModal';
 import { OptionsList } from '../../components/OptionsList';

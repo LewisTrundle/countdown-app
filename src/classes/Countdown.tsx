@@ -1,6 +1,6 @@
-import { RepeatOptions } from '../enums/RepeatOptions';
-import { NotificationOptions } from '../enums/NotificationOptions';
-import { CountdownPeriods } from '../enums/CountdownPeriods';
+import { RepeatOptions } from '../constants/RepeatOptions';
+import { NotificationOptions } from '../constants/NotificationOptions';
+import { CountdownPeriods } from '../constants/CountdownPeriods';
 
 export class Countdown {
   title: string
