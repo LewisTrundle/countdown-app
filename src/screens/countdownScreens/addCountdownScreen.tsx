@@ -2,7 +2,7 @@ import { View, TouchableOpacity, Image } from 'react-native';
 import { useState, useEffect } from "react";
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from '../../styles/styles';
+import { styles } from '../../styles';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { IconWithText } from '../../components/IconWithText';
 import { Countdown } from '../../classes/Countdown';
@@ -31,9 +31,7 @@ export function AddCountdownScreen({ navigation }) {
 
   const storeCountdown = async (navigation): Promise<void> => {
     const countdown = new Countdown(title, date, doesRepeat, notification, desc);
-    console.log("Just about to add ", countdown)
     await addCountdown(countdown);
-    console.log("Just added ", countdown)
     navigation.navigate("CountdownOverview", {addedCountdown: true});
   }
 
@@ -60,7 +58,7 @@ export function AddCountdownScreen({ navigation }) {
   
 
   return (
-    <View style={styles.bgContainer}>
+    <View style={styles.addCountdownBgContainer}>
       {dateTimeModalIsOpen && (
         <DateTimePicker
           value={date}
@@ -87,52 +85,54 @@ export function AddCountdownScreen({ navigation }) {
       </OptionsModal>
 
 
-      <View style={[styles.inputContainer, styles.titleIconContainer]}>
-        <View style={[ styles.titleInputContainer]}>
+      <View style={styles.addCountdownImageContainer}>
+        <Image style={styles.fullSize} source={require('../../assets/robot.png')} />
+      </View>
+
+      <View style={styles.addCountdownTextInputsContainer}>
+        <View style={[styles.addCountdownTitleInputContainer]}>
           <Input
             placeholder='Enter title...'
             onChangeText={(text) => {setTitle(text)}}
           />
         </View>
-        <View style={styles.imageContainer}>
-          <Image style={styles.fullSize} source={require('../../assets/robot.png')} />
+        <View>
+          <Input
+            placeholder='Enter description...'
+            onChangeText={(text) => setDesc(text)}
+          />
         </View>
       </View>
-
-      <View style={styles.inputContainer}>
-        <Input
-          placeholder='Enter description...'
-          onChangeText={(text) => setDesc(text)}
-        />
-      </View>
       
-      <View style={styles.buttonRow}>
-        <IconWithText
-          onPress={() => openDateTimeModal("date")}
-          iconName={"calendar"} 
-          iconSize={50}
-          text={date.toLocaleDateString('en-GB')}
-        />
-        <IconWithText
-          onPress={() => openDateTimeModal("time")}
-          iconName={"time"} 
-          iconSize={50}
-          text={date.toLocaleTimeString('en-GB')}
-        />
-      </View>
-      <View style={styles.buttonRow}>
-        <IconWithText
-          onPress={()=> toggleModal(repeatModalIsOpen, setRepeatModalIsOpen)}
-          iconName={"repeat"} 
-          iconSize={50}
-          text={doesRepeat}
-        />
-        <IconWithText
-          onPress={() => toggleModal(notificationModalIsOpen, setNotificationModalIsOpen)}
-          iconName={"notifications"} 
-          iconSize={50}
-          text={notification}
-        />
+      <View style={styles.addCountdownButtonsContainer}>
+        <View style={styles.addCountdownButtonRow}>
+          <IconWithText
+            onPress={() => openDateTimeModal("date")}
+            iconName={"calendar"} 
+            iconSize={90}
+            text={date.toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"})}
+          />
+          <IconWithText
+            onPress={() => openDateTimeModal("time")}
+            iconName={"time"} 
+            iconSize={90}
+            text={date.toLocaleTimeString('en-GB', { hour: "2-digit", minute: "2-digit" })}
+          />
+        </View>
+        <View style={styles.addCountdownButtonRow}>
+          <IconWithText
+            onPress={()=> toggleModal(repeatModalIsOpen, setRepeatModalIsOpen)}
+            iconName={"repeat"} 
+            iconSize={90}
+            text={doesRepeat}
+          />
+          <IconWithText
+            onPress={() => toggleModal(notificationModalIsOpen, setNotificationModalIsOpen)}
+            iconName={"notifications"} 
+            iconSize={90}
+            text={notification}
+          />
+        </View>
       </View>
     </View>
   );

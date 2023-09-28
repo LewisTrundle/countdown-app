@@ -1,5 +1,5 @@
 import { View, TouchableOpacity, FlatList, Text } from 'react-native';
-import styles from '../styles/styles';
+import { styles }  from '../styles';
 
 type OptionsListProps = {
   onSelect: any,
@@ -27,4 +27,4 @@ export const OptionsList = (props: OptionsListProps) => {
       }}
     />
   )
-}
+};

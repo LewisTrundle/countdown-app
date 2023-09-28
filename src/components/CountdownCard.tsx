@@ -1,5 +1,5 @@
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import styles from '../styles/styles';
+import { styles }  from '../styles';
 import { Countdown } from '../classes/Countdown';
 
 type CountdownCardProps = {
@@ -25,4 +25,4 @@ export const CountdownCard = ({ countdown, onPress }: CountdownCardProps) => {
       </View>
     </TouchableOpacity>
   )
-}
+};

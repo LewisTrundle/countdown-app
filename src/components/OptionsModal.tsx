@@ -1,6 +1,6 @@
 import { View, Modal, Pressable, Text } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import styles from '../styles/styles';
+import { styles }  from '../styles';
 
 type OptionsModalProps = {
   title?: string

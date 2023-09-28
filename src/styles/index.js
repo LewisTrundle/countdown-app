@@ -1,21 +1,12 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { counterEvent } from 'react-native/Libraries/Performance/Systrace';
+import { StyleSheet } from 'react-native';
+import Colors from './theme/colours';
+import Metrics from './theme/spacing';
 
-const dimensions = {
-  fullHeight: Dimensions.get('window').height,
-  fullWidth: Dimensions.get('window').width,
-};
-const colors = {
-  black: '#1e1e1e',
-  grey: '#3F3B4A',
-  white: '#F6F7FC',
-  blue: '#1397b5',
-  pink: '#E63462'
-};
+
 
 const countdownCard = {
   cardHeight: 110,
-  cardWidth: dimensions.fullWidth - 30,
+  cardWidth: Metrics.screenWidth - 30,
   imageSize: 95,
   cornerRadius: 10,
   bottomMargin: 30,
@@ -28,28 +19,19 @@ export const stopwatchOptions = {
   },
   text: {
     fontSize: 50,
-    color: colors.grey,
+    color: Colors.grey,
   },
 };
 
 
-
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   bgContainer: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: colors.white,
-    width: dimensions.fullWidth,
-    height: dimensions.fullHeight,
+    backgroundColor: Colors.white,
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
     padding: 10,
-  },
-  button: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  buttonText: {
-    fontSize: 20,
-    marginTop: 10
   },
 
 
@@ -61,12 +43,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: countdownCard.cardWidth,
     height: countdownCard.cardHeight,
-    backgroundColor: colors.pink,
+    backgroundColor: Colors.pink,
     borderRadius: countdownCard.cornerRadius,
     marginBottom: countdownCard.bottomMargin,
   },
   countdownCardImageContainer: {
-    backgroundColor: colors.pink,
+    backgroundColor: Colors.pink,
     width: countdownCard.imageSize,
     aspectRatio: 1,
     borderWidth: 2,
@@ -81,7 +63,7 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
   countdownCardText: {
-    color: colors.white,
+    color: Colors.white,
   },
   countdownCardTitle: {
     fontSize: 20
@@ -89,33 +71,63 @@ const styles = StyleSheet.create({
   countdownCardCounterContainer: {
     marginLeft: 'auto'
   },
-
-  /*   ADDCOUNTDOWN SCREEN STYLES   */
-  buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  },
-  iconTextCombo: {
+  align: {
     alignItems: 'center',
   },
 
-  titleIconContainer: {
-    flexDirection: 'row',
+
+
+  /*   ADDCOUNTDOWN SCREEN STYLES   */
+  addCountdownBgContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
+    backgroundColor: Colors.white,
+    padding: 10,
   },
-  inputContainer: {
-    width: "100%",
-    marginBottom: 40,
-  },
-  titleInputContainer: {
-    width: '75%',
-    marginTop: "auto",
-    top: 25,
-  },
-  imageContainer: {
-    backgroundColor: colors.blue,
-    width: '25%',
+  addCountdownImageContainer: {
+    position: 'absolute',
+    right: 10,
+    backgroundColor: Colors.blue,
+    width: 130,
     aspectRatio: 1,
+    zIndex: 10
   },
+  addCountdownTextInputsContainer: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: "space-between",
+    width: Metrics.fullWidth,
+  },
+  addCountdownTitleInputContainer: {
+    width: '65%',
+    top: "30%",
+  },
+  addCountdownButtonsContainer: {
+    flex: 5,
+    flexDirection: 'column',
+    justifyContent: "space-evenly",
+    width: Metrics.fullWidth,
+  },
+  addCountdownButtonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  iconWithTextContainer: {
+    width: "40%",
+    alignItems: 'center',
+  },
+
+
+  /*   IMAGE STYLES   */
+  fullSize: {
+    width: "100%",
+    height: "100%",
+  },
+
+
 
   /*   COUNTDOWN DETAILS SCREEN   */
   countdownTimerContainer: {
@@ -204,11 +216,11 @@ const styles = StyleSheet.create({
   modalBodyContainer: {
     height: '70%',
     flexDirection: 'column',
-    backgroundColor: colors.white,
+    backgroundColor: Colors.white,
   },
   listContainer: {
     flex: 1,
-    backgroundColor: colors.blue,
+    backgroundColor: Colors.blue,
     justifyContent: 'space-between',
   },
   modalListButtons: {
@@ -226,41 +238,4 @@ const styles = StyleSheet.create({
     height: '10%',
     backgroundColor: '#464C55',
   },
-
-
-  ///*     CORE STYLING COMPONENTS     *///
-
-  /*   FLEX ATTRIBUTES   */
-  flexColumn: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  flexRow: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-
-  /*   SIZING ATTRIBUTES   */
-  fullScreen: {
-    width: dimensions.fullWidth,
-    height: dimensions.fullHeight,
-  },
-  fullScreenWidth: {
-    width: dimensions.fullWidth,
-  },
-  fullScreenHeight: {
-    height: dimensions.fullHeight,
-  },
-  fullSize: {
-    width: "100%",
-    height: "100%",
-  },
-  fullWidth: {
-    width: "100%",
-  },
-  fullHeight: {
-    height: "100%",
-  },
 });
-
-export default styles;

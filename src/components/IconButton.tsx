@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from '../styles/styles';
+import { styles }  from '../styles';
 
 
 type IconButtonProps = {
@@ -10,7 +10,7 @@ type IconButtonProps = {
 
 export const IconButton = (props: IconButtonProps) => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={styles.button}>
+    <TouchableOpacity onPress={props.onPress}>
       <Icon name={props.iconName} size={100} color={"red"} />
     </TouchableOpacity>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, View, TouchableHighlight } from 'react-native';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
-import styles, { stopwatchOptions } from '../styles/styles';
+import { styles, stopwatchOptions } from '../styles';
 
 const StopwatchTimer = () => {
   const [isStopwatchStart, setIsStopwatchStart] = useState(false);
@@ -24,7 +24,7 @@ const StopwatchTimer = () => {
             setIsStopwatchStart(!isStopwatchStart);
             setResetStopwatch(false);
           }}>
-          <Text style={styles.buttonText}>
+          <Text>
             {!isStopwatchStart ? 'START' : 'STOP'}
           </Text>
         </TouchableHighlight>
@@ -33,7 +33,7 @@ const StopwatchTimer = () => {
             setIsStopwatchStart(false);
             setResetStopwatch(true);
           }}>
-          <Text style={styles.buttonText}>RESET</Text>
+          <Text>RESET</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -65,7 +65,7 @@ const CountdownTimer = () => {
           setIsTimerStart(!isTimerStart);
           setResetTimer(false);
         }}>
-        <Text style={styles.buttonText}>
+        <Text>
           {!isTimerStart ? 'START' : 'STOP'}
         </Text>
       </TouchableHighlight>
@@ -74,7 +74,7 @@ const CountdownTimer = () => {
           setIsTimerStart(false);
           setResetTimer(true);
         }}>
-        <Text style={styles.buttonText}>RESET</Text>
+        <Text>RESET</Text>
       </TouchableHighlight>
     </View>
   )

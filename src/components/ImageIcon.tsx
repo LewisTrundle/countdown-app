@@ -1,5 +1,5 @@
 import { View, Image } from 'react-native';
-import styles from '../styles/styles';
+import { styles }  from '../styles';
 
 export const ImageIcon = (props: {
   source: string;

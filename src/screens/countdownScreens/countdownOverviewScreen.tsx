@@ -1,6 +1,6 @@
 import { View, } from 'react-native';
 import { useState, useEffect } from "react";
-import styles from '../../styles/styles';
+import { styles }  from '../../styles';
 import { getAllCountdowns } from '../../helpers/storageAccess';
 import { IconButton } from '../../components/IconButton';
 import { CountdownCard } from '../../components/CountdownCard';
@@ -48,7 +48,7 @@ export function CountdownOverviewScreen({ navigation, route }) {
 
 
   return (
-    <View style={[styles.bgContainer, styles.iconTextCombo]}>
+    <View style={[styles.bgContainer, styles.align]}>
       {countdowns && countdowns.map((c) => (
         <CountdownCard key={c.title} countdown={c} onPress={() => goToCountdownDetail(c)}/>
       ))}
