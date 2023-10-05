@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { styles } from './src/styles';
 
 import CountdownsStackScreen from './src/screens/countdownScreens/countdowns';
 import StopwatchScreen from './src/screens/stopwatch';
@@ -52,9 +53,12 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar />
       <Tab.Navigator
         initialRouteName="Countdowns"
         screenOptions={({ route }) => ({
+          tabBarStyle: styles.tabBar,
+          tabBarLabelStyle: styles.tabBarLabel,
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === 'Stopwatch') {
@@ -68,13 +72,16 @@ export default function App() {
             } else if (route.name === 'Clocks') {
               iconName = focused ? 'time' : 'time-outline';
             }
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={30} color={color} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Stopwatch" component={StopwatchScreen} />
+        <Tab.Screen 
+          name="Stopwatch" 
+          component={StopwatchScreen}
+          options={{ headerShown: false}} />
         <Tab.Screen name="Alarms" component={AlarmsScreen} />
         <Tab.Screen 
           name="Countdowns" 

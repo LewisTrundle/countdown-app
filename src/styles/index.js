@@ -13,17 +13,6 @@ const countdownCard = {
 }
 
 
-export const stopwatchOptions = {
-  container: {
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 50,
-    color: Colors.grey,
-  },
-};
-
-
 export const styles = StyleSheet.create({
   bgContainer: {
     flex: 1,
@@ -181,9 +170,50 @@ export const styles = StyleSheet.create({
 
 
   /*   STOPWATCH SCREEN STYLES   */
+  stopwatchBgContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
+    backgroundColor: Colors.black,
+  },
+  stopwatchTimerContainer: {
+    top: "5%",
+  },
   stopwatchButtonContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    top: "20%",
+  },
+
+  
+  /*   BUTTON STYLING   */
+  stopwatchButton: {
+    alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 30,
+    elevation: 3,
+    backgroundColor: Colors.pink,
+  },
+  stopwatchLeftButton: {
+    marginRight: 20
+  },
+  stopwatchRightButton: {
+    marginLeft: 20
+  },
+  stopwatchButtonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: Colors.white,
+  },
+  disabledButton: {
+    opacity: 0.5
   },
 
 
@@ -238,4 +268,15 @@ export const styles = StyleSheet.create({
     height: '10%',
     backgroundColor: '#464C55',
   },
+
+
+  /*   TABBAR STYLING   */
+  tabBar: {
+    backgroundColor: Colors.black,
+    borderTopWidth: 0,
+    elevation: 0,
+  },
+  tabBarLabel: {
+    display: "none"
+  }
 });
